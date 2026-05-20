@@ -26,7 +26,7 @@ fn main() {
 
     // .unwrap() / .expect() 本质就是"失败就 panic"
     // 写产品代码尽量避免，写 demo / 测试可以放心用。
-    let n: i32 = "42".parse().unwrap();          // 成功
+    let n: i32 = "42".parse().unwrap(); // 成功
     let n2: i32 = "42".parse().expect("应是数字"); // 失败时打印自定义信息
     println!("n = {n}, n2 = {n2}");
 
@@ -75,8 +75,9 @@ fn main() {
     // ------------------------------------------------------------
     let parsed = "42"
         .parse::<i32>()
-        .map_err(|e| format!("解析失败: {e}"))      // 转换错误类型
-        .unwrap_or_else(|msg| {                     // 失败时给个默认值
+        .map_err(|e| format!("解析失败: {e}")) // 转换错误类型
+        .unwrap_or_else(|msg| {
+            // 失败时给个默认值
             println!("{msg}");
             0
         });
@@ -97,7 +98,7 @@ fn main() {
     }
     match parse_and_double("oops") {
         Ok(v) => println!("ok = {v}"),
-        Err(e) => println!("err = {e}"),  // ParseIntError 被 From 转成 MyError::Parse
+        Err(e) => println!("err = {e}"), // ParseIntError 被 From 转成 MyError::Parse
     }
 }
 
@@ -105,7 +106,7 @@ fn main() {
 // 函数返回 Result + ?，让错误"顺着调用栈"自动向上传播
 // ------------------------------------------------------------
 fn read_username_from_file(path: &str) -> Result<String, io::Error> {
-    let mut file = File::open(path)?;        // ? 失败立即返回
+    let mut file = File::open(path)?; // ? 失败立即返回
     let mut username = String::new();
     file.read_to_string(&mut username)?;
     Ok(username)
@@ -145,7 +146,7 @@ impl From<ParseIntError> for MyError {
 }
 
 fn parse_and_double(s: &str) -> Result<i32, MyError> {
-    let n: i32 = s.parse()?;             // ParseIntError 自动转为 MyError::Parse
+    let n: i32 = s.parse()?; // ParseIntError 自动转为 MyError::Parse
     if !(0..=1000).contains(&n) {
         return Err(MyError::OutOfRange);
     }

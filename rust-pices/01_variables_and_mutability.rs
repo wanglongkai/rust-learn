@@ -45,12 +45,12 @@ fn main() {
     //    它不是"修改"，而是"创建一个新绑定，把旧的盖住"。
     //    关键点：可以改变类型！这是 mut 做不到的。
     // ------------------------------------------------------------
-    let spaces = "   ";           // 此时 spaces 是 &str
-    let spaces = spaces.len();    // 现在 spaces 是 usize（类型变了！）
+    let spaces = "   "; // 此时 spaces 是 &str
+    let spaces = spaces.len(); // 现在 spaces 是 usize（类型变了！）
     println!("空格数量 spaces = {spaces}");
 
     let score = 10;
-    let score = score + 5;        // 还是 i32
+    let score = score + 5; // 还是 i32
     let score = format!("{score} 分"); // 变成 String
     println!("shadowing 后的 score = {score}");
 
@@ -61,7 +61,7 @@ fn main() {
     // ------------------------------------------------------------
     let mut number = 5;
     println!("number 初值 = {number}");
-    number = 10;        // OK
+    number = 10; // OK
     // number = "ten";  // 编译错误：mut 不能改类型
 
     let demo = "5";

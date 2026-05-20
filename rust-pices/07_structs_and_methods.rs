@@ -104,7 +104,7 @@ fn main() {
     let username = String::from("bob");
     let email = String::from("bob@example.com");
     let user_b = User {
-        username,        // 等价于 username: username
+        username, // 等价于 username: username
         email,
         active: true,
         sign_in_count: 0,
@@ -132,10 +132,17 @@ fn main() {
 
     // ---------- 9. 调用方法与关联函数 ----------
     let rect1 = Rectangle::new(30, 50);
-    let rect2 = Rectangle { width: 10, height: 40 };
+    let rect2 = Rectangle {
+        width: 10,
+        height: 40,
+    };
     let mut square = Rectangle::square(20);
 
-    println!("rect1 面积 = {}, 周长 = {}", rect1.area(), rect1.perimeter());
+    println!(
+        "rect1 面积 = {}, 周长 = {}",
+        rect1.area(),
+        rect1.perimeter()
+    );
     println!("rect1 能装 rect2 吗？{}", rect1.can_hold(&rect2));
 
     square.scale(2);

@@ -27,10 +27,17 @@ fn main() {
 
     // 1.2 各种格式化写法
     let n = 42;
-    println!("十进制 {}, 十六进制 {:x}, 二进制 {:b}, 八进制 {:o}", n, n, n, n);
+    println!(
+        "十进制 {}, 十六进制 {:x}, 二进制 {:b}, 八进制 {:o}",
+        n, n, n, n
+    );
     println!("宽度填充 |{:>6}|{:<6}|{:^6}|", 7, 7, 7); // 右/左/居中
     println!("浮点保留小数 {:.3}", std::f64::consts::PI);
-    println!("具名参数 {who} 在 {place}", who = "Alice", place = "Shanghai");
+    println!(
+        "具名参数 {who} 在 {place}",
+        who = "Alice",
+        place = "Shanghai"
+    );
     println!("Debug 打印 {:?}", vec![1, 2, 3]);
     println!("漂亮 Debug:\n{:#?}", vec![1, 2, 3]);
 
@@ -48,8 +55,7 @@ fn main() {
     let v = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     // 2.1 map / filter / collect：经典流水线
-    let evens_squared: Vec<i32> =
-        v.iter().filter(|&&x| x % 2 == 0).map(|x| x * x).collect();
+    let evens_squared: Vec<i32> = v.iter().filter(|&&x| x % 2 == 0).map(|x| x * x).collect();
     println!("偶数的平方 = {:?}", evens_squared);
 
     // 2.2 sum / count / max / min
@@ -139,7 +145,10 @@ fn main() {
 
     // 4.3 std::fs（这里只演示读，写在第 11 课已经见过）
     if let Ok(text) = std::fs::read_to_string("Cargo.toml") {
-        println!("Cargo.toml 前 60 字符: {}", text.chars().take(60).collect::<String>());
+        println!(
+            "Cargo.toml 前 60 字符: {}",
+            text.chars().take(60).collect::<String>()
+        );
     } else {
         println!("(运行目录下没有 Cargo.toml，跳过)");
     }

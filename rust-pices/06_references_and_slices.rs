@@ -45,9 +45,9 @@ fn main() {
     //    不是花括号。这让借用检查更宽松、更智能。
     // ------------------------------------------------------------
     let mut data = vec![1, 2, 3];
-    let r = &data;                  // 不可变借用开始
-    println!("不可变读：{:?}", r);  // 最后一次使用 r —— 借用结束
-    data.push(4);                   // 现在可以可变操作了
+    let r = &data; // 不可变借用开始
+    println!("不可变读：{:?}", r); // 最后一次使用 r —— 借用结束
+    data.push(4); // 现在可以可变操作了
     println!("修改后：{:?}", data);
 
     // ------------------------------------------------------------
@@ -58,7 +58,7 @@ fn main() {
     // ------------------------------------------------------------
     let sentence = String::from("hello rust world");
     let hello: &str = &sentence[0..5];
-    let rust:  &str = &sentence[6..10];
+    let rust: &str = &sentence[6..10];
     let world: &str = &sentence[11..];
     println!("切片: '{hello}' / '{rust}' / '{world}'");
 
@@ -76,7 +76,7 @@ fn main() {
     let middle: &[i32] = &numbers[1..4];
     println!("数组切片 = {:?}, 长度 = {}", middle, middle.len());
     println!("sum = {}", sum(middle));
-    println!("sum = {}", sum(&numbers));       // 数组可隐式转切片
+    println!("sum = {}", sum(&numbers)); // 数组可隐式转切片
     println!("sum = {}", sum(&vec![1, 2, 3])); // Vec 也行
 
     // ------------------------------------------------------------

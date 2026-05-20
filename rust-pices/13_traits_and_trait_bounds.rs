@@ -155,12 +155,18 @@ fn main() {
 
     notify_a(&article);
     notify_b(&tweet);
-    notify_c(&NewsArticleDbg { headline: String::from("debug 版"), author: String::from("Bob") });
-    notify_pair(&article, &NewsArticle {
-        headline: String::from("第二条"),
-        location: String::from("Beijing"),
-        author: String::from("Carol"),
+    notify_c(&NewsArticleDbg {
+        headline: String::from("debug 版"),
+        author: String::from("Bob"),
     });
+    notify_pair(
+        &article,
+        &NewsArticle {
+            headline: String::from("第二条"),
+            location: String::from("Beijing"),
+            author: String::from("Carol"),
+        },
+    );
 
     println!("默认 announcement: {}", tweet.announcement());
 
@@ -169,7 +175,10 @@ fn main() {
 
     // dyn Trait 的容器：把不同具体类型混着存
     let items: Vec<Box<dyn Summary>> = vec![
-        Box::new(Tweet { username: "x".into(), content: "1".into() }),
+        Box::new(Tweet {
+            username: "x".into(),
+            content: "1".into(),
+        }),
         Box::new(NewsArticle {
             headline: "h".into(),
             location: "l".into(),
@@ -189,8 +198,12 @@ struct NewsArticleDbg {
     author: String,
 }
 impl Summary for NewsArticleDbg {
-    fn summarize(&self) -> String { self.headline.clone() }
-    fn author(&self) -> String { self.author.clone() }
+    fn summarize(&self) -> String {
+        self.headline.clone()
+    }
+    fn author(&self) -> String {
+        self.author.clone()
+    }
 }
 
 // ============================================================

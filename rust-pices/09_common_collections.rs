@@ -37,8 +37,8 @@ fn main() {
 
     // ---- 1.2 访问元素 ----
     // 两种方式：[] 越界 panic，.get() 返回 Option<&T> 更安全
-    let first = &v[0];                 // panic if v is empty
-    let maybe = v.get(100);            // Option，安全
+    let first = &v[0]; // panic if v is empty
+    let maybe = v.get(100); // Option，安全
     println!("first = {first}, maybe = {:?}", maybe);
 
     // ---- 1.3 迭代：三种"风味" ----
@@ -66,12 +66,11 @@ fn main() {
 
     // ---- 1.4 迭代器组合子（极常用，先有印象，第 15 课更深入）----
     let v = vec![1, 2, 3, 4, 5];
-    let doubled_evens: Vec<i32> =
-        v.iter().filter(|&&x| x % 2 == 0).map(|x| x * 2).collect();
+    let doubled_evens: Vec<i32> = v.iter().filter(|&&x| x % 2 == 0).map(|x| x * 2).collect();
     println!("偶数的两倍 = {:?}", doubled_evens);
 
     let sum: i32 = v.iter().sum();
-    let max  = v.iter().max();
+    let max = v.iter().max();
     println!("sum = {sum}, max = {:?}", max);
 
     // ============================================================
@@ -116,8 +115,8 @@ fn main() {
     }
 
     // entry API：键不存在则插入，已存在则不动。极地道。
-    scores.entry(String::from("Blue")).or_insert(99);       // 已存在 → 仍是 10
-    scores.entry(String::from("Red")).or_insert(30);        // 不存在 → 插入 30
+    scores.entry(String::from("Blue")).or_insert(99); // 已存在 → 仍是 10
+    scores.entry(String::from("Red")).or_insert(30); // 不存在 → 插入 30
 
     // 计数模式：把某个 key 的 value 不断 +1
     let text = "the quick brown fox jumps over the lazy dog the fox";

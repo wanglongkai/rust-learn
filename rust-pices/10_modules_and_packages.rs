@@ -55,8 +55,8 @@ mod back_of_house {
     //    要让某个字段对外可写/可读，需要单独加 pub。
     // ------------------------------------------------------------
     pub struct Breakfast {
-        pub toast: String,          // 对外公开
-        seasonal_fruit: String,     // 私有
+        pub toast: String,      // 对外公开
+        seasonal_fruit: String, // 私有
     }
 
     impl Breakfast {

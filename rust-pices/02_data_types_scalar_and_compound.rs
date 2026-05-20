@@ -19,23 +19,21 @@ fn main() {
     //    - 布尔：bool，只有 true / false。
     //    - 字符：char，4 字节 Unicode 标量值（注意：不是 1 字节！）。
     // ------------------------------------------------------------
-    let age: u8 = 30;                 // 0 ~ 255 之间
-    let temperature: f64 = 36.6;      // 双精度浮点
+    let age: u8 = 30; // 0 ~ 255 之间
+    let temperature: f64 = 36.6; // 双精度浮点
     let is_active: bool = true;
-    let heart: char = '爱';           // 中文也是单个 char
-    println!(
-        "age={age}, temperature={temperature}, is_active={is_active}, heart={heart}"
-    );
+    let heart: char = '爱'; // 中文也是单个 char
+    println!("age={age}, temperature={temperature}, is_active={is_active}, heart={heart}");
 
     // ------------------------------------------------------------
     // 2. 整数字面量的多种写法 + 可读性分隔符 _
     //    分隔符 _ 是给人看的，编译器会忽略。
     // ------------------------------------------------------------
-    let decimal = 98_222;       // 十进制
-    let hex = 0xff;             // 十六进制
-    let octal = 0o77;           // 八进制
-    let binary = 0b1111_0000;   // 二进制
-    let byte = b'A';            // u8 字面量，只能用 ASCII
+    let decimal = 98_222; // 十进制
+    let hex = 0xff; // 十六进制
+    let octal = 0o77; // 八进制
+    let binary = 0b1111_0000; // 二进制
+    let byte = b'A'; // u8 字面量，只能用 ASCII
     println!("decimal={decimal}, hex={hex}, octal={octal}, binary={binary}, byte={byte}");
 
     // ------------------------------------------------------------
@@ -82,9 +80,9 @@ fn main() {
     //    - 局部变量、能从右值推出来的，省略。
     //    - 函数签名、struct 字段、常量，必须写。
     // ------------------------------------------------------------
-    let inferred = 42;          // i32（默认整数类型）
-    let inferred_f = 3.14;      // f64（默认浮点）
-    let explicit: u64 = 42;     // 想要 u64 时必须显式标注
+    let inferred = 42; // i32（默认整数类型）
+    let inferred_f = 3.14; // f64（默认浮点）
+    let explicit: u64 = 42; // 想要 u64 时必须显式标注
     println!("inferred={inferred}, inferred_f={inferred_f}, explicit={explicit}");
 }
 

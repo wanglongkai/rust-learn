@@ -30,7 +30,7 @@ fn main() {
     // 块表达式：{} 整体就是一个表达式，最后一行不带分号即为返回值。
     let doubled = {
         let value = 10;
-        value * 2   // 注意：没有分号 → 这是返回值
+        value * 2 // 注意：没有分号 → 这是返回值
     };
     println!("块表达式 doubled = {doubled}");
 
@@ -38,7 +38,7 @@ fn main() {
     #[allow(clippy::let_unit_value, unused_must_use)]
     let nothing = {
         let v = 10;
-        let _ = v * 2;   // 加了分号，块的返回值变成 ()；用 let _ 避免 lint 噪音
+        let _ = v * 2; // 加了分号，块的返回值变成 ()；用 let _ 避免 lint 噪音
     };
     println!("nothing 是 unit 值：{:?}", nothing);
 

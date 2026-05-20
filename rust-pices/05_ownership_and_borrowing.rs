@@ -50,7 +50,7 @@ fn main() {
     println!("Copy 类型：x = {x}, y = {y}（x 仍然可用）");
 
     let t1: (i32, bool) = (1, true);
-    let t2 = t1;            // t1 是 Copy，所以 t1 还在
+    let t2 = t1; // t1 是 Copy，所以 t1 还在
     println!("t1 = {:?}, t2 = {:?}", t1, t2);
 
     let t3 = (1, String::from("hi"));
@@ -82,7 +82,7 @@ fn main() {
     println!("'{text}' 的长度是 {len}");
 
     let mut msg = String::from("hello");
-    append_world(&mut msg);            // 可变借用，函数可以修改原值
+    append_world(&mut msg); // 可变借用，函数可以修改原值
     println!("修改后 msg = {msg}");
 
     // ------------------------------------------------------------

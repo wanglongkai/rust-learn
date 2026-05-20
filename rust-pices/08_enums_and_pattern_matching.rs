@@ -18,15 +18,15 @@
 // ------------------------------------------------------------
 #[derive(Debug)]
 enum IpAddr {
-    V4(u8, u8, u8, u8),     // 元组式变体
+    V4(u8, u8, u8, u8), // 元组式变体
     V6(String),
 }
 
 #[derive(Debug)]
 enum Message {
-    Quit,                            // 无数据
-    Move { x: i32, y: i32 },         // 具名字段变体
-    Write(String),                   // 单值元组变体
+    Quit,                    // 无数据
+    Move { x: i32, y: i32 }, // 具名字段变体
+    Write(String),           // 单值元组变体
     ChangeColor(i32, i32, i32),
 }
 
@@ -88,7 +88,7 @@ fn main() {
         (0, y) => println!("Y 轴上的点 y={y}"),
         (x, y) if x == y => println!("对角线上的点 ({x},{y})"),
         (x, y) if x > 0 && y > 0 => println!("第一象限 ({x},{y})"),
-        _ => println!("其它"),     // _ 通配符：兜底，必须放最后
+        _ => println!("其它"), // _ 通配符：兜底，必须放最后
     }
 
     // 范围匹配 + 字面量

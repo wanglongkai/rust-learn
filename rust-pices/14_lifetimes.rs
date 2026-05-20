@@ -26,11 +26,7 @@
 //    解法：用 'a 表达 "x、y、返回值都活着同样长（取它们的交集）"。
 // ------------------------------------------------------------
 fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
-    if x.len() > y.len() {
-        x
-    } else {
-        y
-    }
+    if x.len() > y.len() { x } else { y }
 }
 
 // 反例：下面会编译失败 —— result 想活到 main 末尾，
@@ -97,11 +93,7 @@ fn static_demo() -> &'static str {
 // ------------------------------------------------------------
 use std::fmt::Display;
 
-fn longest_with_announcement<'a, T>(
-    x: &'a str,
-    y: &'a str,
-    ann: T,
-) -> &'a str
+fn longest_with_announcement<'a, T>(x: &'a str, y: &'a str, ann: T) -> &'a str
 where
     T: Display,
 {
@@ -117,7 +109,9 @@ fn main() {
 
     let novel = String::from("第一句话。第二句话。");
     let first_sentence = novel.split('。').next().expect("至少要有一句话");
-    let excerpt = ImportantExcerpt { part: first_sentence };
+    let excerpt = ImportantExcerpt {
+        part: first_sentence,
+    };
     println!("摘录: {}", excerpt.announce_and_return_part("注意"));
 
     println!("第一个单词: '{}'", first_word(s1.as_str()));

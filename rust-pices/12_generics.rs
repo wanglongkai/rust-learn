@@ -33,7 +33,9 @@ where
 {
     let mut max = list[0];
     for &x in list {
-        if x > max { max = x; }
+        if x > max {
+            max = x;
+        }
     }
     max
 }
@@ -72,7 +74,10 @@ impl Point<f64> {
 // 多参数 impl：泛型方法也可以引入新的泛型
 impl<T, U> MixedPoint<T, U> {
     fn mixup<V, W>(self, other: MixedPoint<V, W>) -> MixedPoint<T, W> {
-        MixedPoint { x: self.x, y: other.y }
+        MixedPoint {
+            x: self.x,
+            y: other.y,
+        }
     }
 }
 
@@ -97,7 +102,11 @@ fn main() {
     let integer = Point { x: 5, y: 10 };
     let floating = Point { x: 1.0, y: 4.0 };
     println!("integer = {:?}, .x() = {}", integer, integer.x());
-    println!("floating = {:?}, distance = {}", floating, floating.distance_from_origin());
+    println!(
+        "floating = {:?}, distance = {}",
+        floating,
+        floating.distance_from_origin()
+    );
 
     let mixed = MixedPoint { x: 1, y: "hello" };
     let other = MixedPoint { x: 2.5, y: 'z' };
